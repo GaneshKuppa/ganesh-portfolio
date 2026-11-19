@@ -1,15 +1,34 @@
 export type Project = {
-  title: string; kicker: string; body: string;
-  points?: string[]; impact?: { metric: string; label: string }[];
-  tech: string[]; live?: string; code?: string;
-  shot?: string; phone?: string; inside?: { shot?: string; phone?: string };
+  title: string;
+  kicker: string;
+  body: string;
+  points?: string[];
+  impact?: { metric: string; label: string }[];
+  tech: string[];
+  live?: string;
+  code?: string;
+  shot?: string;
+  phone?: string;
+  inside?: { shot?: string; phone?: string };
 };
 export type Room = {
-  id: string; plaque: [string, string]; title: string; tagline: string;
-  intro: string; checklist: string[]; door: string; glow: string; projects: Project[];
+  id: string;
+  plaque: [string, string];
+  title: string;
+  tagline: string;
+  intro: string;
+  checklist: string[];
+  door: string;
+  glow: string;
+  projects: Project[];
 };
 export type Chapter = {
-  year: string; range: string; title: string; where: string; points: string[]; tint: string;
+  year: string;
+  range: string;
+  title: string;
+  where: string;
+  points: string[];
+  tint: string;
 };
 
 // Hero flip-calendar words: "I build ___"
@@ -40,7 +59,7 @@ export const numbers = [
   { value: "0.94", label: "ROC-AUC, SKYWAVE model" },
 ];
 
-// Toolbox rows — keys must match ICONS map in Toolbox.tsx later
+// Toolbox rows — keys recoloured to real tool badges in Gate 4b
 export const toolbox: { row: string; keys: string[] }[] = [
   { row: "Query & data", keys: ["SQL", "Pandas", "NumPy", "Advanced Excel"] },
   { row: "Visualise & report", keys: ["Power BI", "Tableau", "Matplotlib"] },
@@ -48,23 +67,33 @@ export const toolbox: { row: string; keys: string[] }[] = [
   { row: "Track & assure", keys: ["JIRA"] },
 ];
 
-// Story chapters — year digits only (odometer reads char-by-char)
+// Story odometer chapters — CORRECTED TIMELINE
+// Startups are now shown as concurrent with B.Tech (2016-2020), not separate years.
 export const story: Chapter[] = [
-  { year: "2016", range: "2016 — 2020", title: "Engineering foundations",
-    where: "Gayatri Vidya Parishad, India", tint: "#5B6B76",
-    points: ["Programming, databases and the first analytical projects.", "Where the method started."] },
-  { year: "2020", range: "2020 — AUG 2025", title: "Data quality & automation at scale",
-    where: "Infosys, India", tint: "#2F5D8C",
-    points: ["Interrogated relational datasets with SQL; traced anomalies to root cause.",
+  { year: "2016", range: "2016 — 2020", title: "Engineering & Startup Leadership",
+    where: "Gayatri Vidya Parishad + Mars Innov / Alles Novus / Khadga", tint: "#5B6B76",
+    points: ["B.Tech in Instrumentation & Control.",
+             "Simultaneously served as CSO at Mars Innov India and MD at Alles Novus.",
+             "Led game development internships at Khadga Entertainment.",
+             "Proven ability to balance heavy academic load with operational delivery."] },
+  
+  { year: "2021", range: "FEB 2021 — JUN 2025", title: "Corporate Data Engineering",
+    where: "Infosys, Hyderabad/AP", tint: "#2F5D8C",
+    points: ["System Engineer → Quality Engineering Analyst.",
+             "Interrogated relational datasets with SQL; traced anomalies to root cause.",
              "Automated checks cut manual effort 60%, lifted coverage 45%.",
              "Trained 15 colleagues on quality and reporting."] },
-  { year: "2025", range: "2025 — 2026", title: "MSc Advanced Computing (AI)",
+             
+  { year: "2025", range: "SEP 2025 — PRESENT", title: "MSc Advanced Computing (AI)",
     where: "University of Leeds, UK", tint: "#1F7A6B",
     points: ["SKYWAVE pipeline: 7,700+ records, calibrated models, ROC-AUC 0.94.",
              "UK part-time work alongside study — adaptability under pressure."] },
-  { year: "2026", range: "2026 — NOW", title: "Open to IT roles",
-    where: "Data — Security — Software — BI", tint: "#6B4E71",
-    points: ["Turning complex systems into clear, reliable, secure outcomes."] },
+             
+  { year: "2026", range: "NOV 2025 — FEB 2026", title: "Retail Operations Contract",
+    where: "Sainsbury's, UK", tint: "#B98A4E", // Sand tone for ops
+    points: ["Maintained 95%+ product availability via inventory management.",
+             "Reduced waste 15% through FEFO rotation practices.",
+             "Cross-trained in bakery, checkout, and stock management."] },
 ];
 
 // Four rooms = four hireable pillars. Titles MUST match ProjectPreview keys.
@@ -80,6 +109,20 @@ export const rooms: Room[] = [
         points: ["37-row anomaly sweep on a quality flag", "Root-cause via relational joins", "Corrections + JIRA audit trail"],
         impact: [{ metric: "99.9%", label: "reliability kept" }],
         tech: ["SQL", "JIRA", "AWS S3/EC2", "Advanced Excel"] },
+
+      { title: "Agri-Tech Sensor Logging", kicker: "Alles Novus · Managing Director · IoT Data",
+        body: "Designed data-logging frameworks for aeroponic/hydroponic systems, optimizing crop yield predictions using real-time sensor arrays.",
+        points: ["Real-time telemetry ingestion from soil/moisture sensors.","Statistical analysis to correlate environmental variables with growth rates.",
+           "Delivered actionable insights to farmers via simplified dashboards."],
+        impact: [{ metric: "+12%", label: "yield optimization" }],
+        tech: ["Python", "IoT Sensors", "SQL", "Data Viz"] },
+      { title: "Go-to-Market Strategy", kicker: "Mars Innov India · Chief Strategy Officer · Product Ops",
+        body: "Defined GTM strategy for hardware-software hybrids; aligned engineering roadmaps with market demands and sales pipelines.",
+       points: ["Managed cross-functional teams (Eng, Sales, Logistics).", "Forecasted demand based on historical beta-test data.",
+           "Ensured regulatory compliance for consumer electronics launch."],
+       impact: [{ metric: "3+", label: "teams coordinated" }],
+        tech: ["Strategy", "Forecasting", "Compliance", "JIRA"] },
+
       { title: "Reporting Automation", kicker: "Reporting · Excel & SQL · 60% less manual",
         body: "Standardised templates and scheduled SQL extracts replaced manual collation, delivering accurate, timely, consistent information.",
         points: ["Pivot + XLOOKUP templates", "Scheduled warehouse extracts", "Ad-hoc request handling"],
@@ -99,6 +142,12 @@ export const rooms: Room[] = [
         points: ["Regression suites on every release", "Data-validation checks", "Defect lifecycle in JIRA"],
         impact: [{ metric: "60%", label: "manual effort down" }, { metric: "45%", label: "coverage up" }],
         tech: ["Selenium", "JIRA", "Python", "SQL"] },
+      { title: "Player Retention Optimization", kicker: "Khadga Entertainment · Game Dev Intern · Unity/C#",
+        body: "Analyzed player drop-off points in indie titles; iterated on core mechanics to boost session length and retention metrics.",
+        points: ["A/B tested tutorial flows and difficulty curves.", "Implemented analytics hooks to track user behavior events.",
+           "Contributed to award-winning gameplay mechanics."],
+        impact: [{ metric: "+18%", label: "retention boost" }],
+        tech: ["Unity", "C#", "Analytics", "UX Research"] },
     ] },
   { id: "ml", plaque: ["MACHINE", "LEARNING"], title: "Machine Learning & AI",
     tagline: "Pipelines, models & calibration", door: "#6B4E71", glow: "#e7d3ec",
@@ -133,4 +182,29 @@ export const rooms: Room[] = [
         impact: [{ metric: "hardened", label: "AWS + monitoring + rollback" }],
         tech: ["AWS S3/EC2", "Git", "Python"] },
     ] },
+];
+
+// NEW EXPORT: Hidden details revealed by the secondary cord
+export const startupRoles = [
+  { 
+    company: "MARS Innovation Pvt Ltd", 
+    role: "Chief Strategy Officer (CSO)", 
+    period: "Sep 2019 – Feb 2020", 
+    impact: "Defined go-to-market strategy for hardware-software hybrid products; managed cross-functional teams across engineering, sales, and logistics.",
+    tech: ["Strategy", "Team Lead", "Product Ops"]
+  },
+  { 
+    company: "Alles Novus", 
+    role: "Managing Director", 
+    period: "Jan 2018 – Feb 2020", 
+    impact: "Led R&D for aeroponic/hydroponic systems; implemented data logging frameworks to optimize crop yield predictions using sensor arrays.",
+    tech: ["IoT Sensors", "Data Logging", "Agri-Tech"]
+  },
+  { 
+    company: "Khadga Entertainment", 
+    role: "Game Development Intern", 
+    period: "Jun 2017 – Feb 2020", 
+    impact: "Optimized player retention flows through UX testing; developed core gameplay mechanics contributing to award-winning indie titles.",
+    tech: ["Unity/C#", "UX Testing", "Game Logic"]
+  }
 ];

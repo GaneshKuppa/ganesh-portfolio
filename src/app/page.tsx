@@ -10,7 +10,8 @@ import { DataExplorer } from "@/components/ui/DataExplorer";
 import { Toolbox } from "@/components/studio/Toolbox";
 import { Contact } from "@/components/studio/Contact";
 import { BackToTop, Reveals } from "@/components/studio/Chrome";
-
+import { OpsToggle } from "@/components/ui/OpsToggle";
+import { OpsButton } from "@/components/ui/OpsButton"; 
 export default function Home() {
   return (
     <>
@@ -18,15 +19,17 @@ export default function Home() {
       <Header />
       <PullCord />
       <main>
-        <Hero />
-        <Rooms />
-        <Story />
-        <Board />
-        <SkillsRing />
-        <DataExplorer />
-        <Toolbox />
-        <Contact />
-      </main>
+  <Hero />
+  <Rooms />
+  <Story />
+  <Board />
+  <OpsToggle /> 
+  <SkillsRing />
+  <OpsButton />
+  <DataExplorer />
+  <Toolbox />
+  <Contact />
+</main>
       <BackToTop />
       <Reveals />
     </>
